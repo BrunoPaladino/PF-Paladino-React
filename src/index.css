@@ -1,0 +1,45 @@
+/* RESET DE MARGENES */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+  /* FIN DE RESET DE MARGENES */
+
+/* ESTILO Y COLOR DE TEXTO */
+h1, h2, h3, article, div, section, fieldset {
+    font-family: "Roboto", sans-serif;
+    color: rgb(11, 9, 9);
+}
+
+h3{
+    margin: 40px;
+}
+  /* FIN DE ESTILO Y COLOR DE TEXTO */
+
+#title {
+    color: rgb(11, 9, 9);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 32px;
+    height: 110px;
+    width: auto;
+    max-width: 100%;
+}
+
+h2 {
+    color: rgb(11, 9, 9);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#cart {
+    margin-right: 5px;
+    justify-content: space-between;
+}
+
+#cartQuantity {
+    padding-left: 10px;
+}
