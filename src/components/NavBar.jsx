@@ -13,13 +13,12 @@ const NavBar = () => {
             <Box p='4'>
                 <Menu>
                     <MenuButton as={Button} rightIcon={<ChevronDownIcon />}>
-                        Menu
+                        Category
                     </MenuButton>
                     <MenuList>
-                        <MenuItem>Our Products</MenuItem>
-                        <MenuItem>About Us</MenuItem>
-                        <MenuItem>Our Stores</MenuItem>
-                        <MenuItem>Contact</MenuItem>
+                        <MenuItem>Headset</MenuItem>
+                        <MenuItem>Mouse</MenuItem>
+                        <MenuItem>Keyboard</MenuItem>
                     </MenuList>
                 </Menu>
             </Box>
