@@ -1,16 +1,15 @@
 import React from 'react'
 import { Card,CardBody, Stack, Image, Heading, Text, Button, ButtonGroup, CardFooter, Divider} from '@chakra-ui/react'
+import { Link } from 'react-router-dom'
 
-const Item = ({id, name, image, description, price}) => {
-
-
+const Item = ({key, id, name, image, description, price, stock, category}) => {
     return (
         <>
-            <div key = {id}>
+            <div key = "${id}">
                     <div className='itemContainer'>
                         <Card maxW='sm'>
                             <CardBody>
-                                <p>
+                                <p>                                     {/* tomo la prop de ItemList y armo las cards para cada producto, Item es un componente de presentacion */}
                                     {image}
                                 </p>
                                 <Stack mt='6' spacing='3'>
@@ -26,8 +25,10 @@ const Item = ({id, name, image, description, price}) => {
                             <Divider />
                             <CardFooter>
                                 <ButtonGroup spacing='2'>
+                                    <Link to={`/item/${'id'}`}>
                                     <Button variant='solid' colorScheme='blue'> See more </Button>
-                                    <Button variant='ghost' colorScheme='blue'> Add to cart </Button>
+                                    </Link>
+                                    {/* <Button variant='ghost' colorScheme='blue'> Add to cart </Button> */}
                                 </ButtonGroup>
                             </CardFooter>
                         </Card>

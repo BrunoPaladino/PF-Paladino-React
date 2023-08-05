@@ -3,7 +3,7 @@ import { Image, Box, Flex} from '@chakra-ui/react'
 import cartIcon from '../assets/cartIcon.png'
 
 const CartWidget = () => {
-    return (
+    return (                    //retorna el icono del carrito y lo tomo desde el componente NavBar
         <div id='cart'>
                 <Flex>
                 <Box boxSize='20px' >

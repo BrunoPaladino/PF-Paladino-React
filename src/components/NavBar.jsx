@@ -1,13 +1,19 @@
 import React from 'react'
 import { Menu, MenuButton, MenuList, MenuItem, Button, Flex, Box, Spacer } from '@chakra-ui/react' //Importo los elementos del Menu de Chakra
 import { ChevronDownIcon} from '@chakra-ui/icons' //Importo icono de Chakra
+import TechStoreIcon from '../assets/TechStoreIcon.jfif'
 import CartWidget from './CartWidget'
+import { Link } from 'react-router-dom'
 
 const NavBar = () => {
     return (
         <div>
             
-            <h1 id='title'>Tech Store</h1>
+            <div id='title'>
+                <Link to={"/"}>                                 {/* Si tocamos el icono de Tech Store, vamos a la pagina principal */}
+                    <img src={TechStoreIcon} alt="Tech Store Icon" width='200px' height='200px'/>
+                </Link>
+            </div>
 
             <Flex>
             <Box p='4'>
@@ -16,9 +22,26 @@ const NavBar = () => {
                         Category
                     </MenuButton>
                     <MenuList>
-                        <MenuItem>Headset</MenuItem>
-                        <MenuItem>Mouse</MenuItem>
-                        <MenuItem>Keyboard</MenuItem>
+                        <MenuItem>
+                            <Link to={`/category/${'Headset'}`}>
+                                Headset
+                            </Link>
+                        </MenuItem>
+
+
+                        <MenuItem>
+                            <Link to={`/category/${'Mouse'}`}>
+                                Mouse
+                            </Link>
+                        </MenuItem>
+                        
+
+                        <MenuItem>
+                            <Link to={`/category/${'Keyboard'}`}>
+                                Keyboard
+                            </Link>
+                        </MenuItem>
+
                     </MenuList>
                 </Menu>
             </Box>
@@ -26,7 +49,9 @@ const NavBar = () => {
             <Spacer/>
 
             <Box p='4'>
-                <CartWidget/>
+                <Link to= {"/cart"}>            {/* Si tocamos el icono del carrito, vamos a la pagina cart */}
+                    <CartWidget/>
+                </Link>
             </Box>
             </Flex>
         </div>

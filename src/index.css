@@ -21,12 +21,13 @@ h3{
     color: rgb(11, 9, 9);
     background: linear-gradient(rgb(215, 122, 16)10%, rgb(255, 255, 255) );
     display: flex;
-    justify-content: center;
-    align-items: center;
+    justify-content: flex-start;
     font-size: 32px;
     height: 110px;
     width: auto;
     max-width: 100%;
+    flex-direction: row;
+    align-items: center;
 }
 
 h2 {
