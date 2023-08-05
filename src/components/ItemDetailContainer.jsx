@@ -1,24 +1,10 @@
 import React from 'react'
-import { useParams } from 'react-router-dom'
-import RedragonHeadset from '../assets/RedragonHeadset.jfif'
-import LogitechHeadset from '../assets/LogitechHeadset.jfif'
-import HyperXHeadset from  '../assets/HyperXHeadset.jfif'
-import PrimusHeadset from '../assets/PrimusHeadset.jpg'
-import LogitechMouse from '../assets/LogitechMouse.jfif'
-import RedragonMouse from '../assets/RedragonMouse.jpg'
-import RedragonKeyboardKumara from '../assets/RedragonKeyboardKumara.png'
-import RedragonKeyboardDeimos from '../assets/RedragonKeyboardDeimos.png'
-import LogitechKeyboard from '../assets/LogitechKeyboardPop.jfif'
-import HyperXKeyboard from '../assets/HyperXKeyboard.jpg'
-import ItemList from './ItemList'
+import ItemDetail from './ItemDetail'
 
+const ItemDetailContainer = () => {
 
-const ItemListContainer = () => {
-
-const {category} = useParams();
-
-const products = [
-        {id: 1, name:"Redragon Headset Zeus", image: <img src={RedragonHeadset} alt="Zeus Headset" width='300px' height='300px'/>, description : "Description 1", price: 10, stock: 10, category: "Headset" },
+    const products = [
+        {id: 1, name:"Redragon Headset Zeus", image: <img src={RedragonHeadset} alt="Zeus Headset" width='300px' height='300px' borderRadius='lg'/>, description : "Description 1", price: 10, stock: 10, category: "Headset" },
         {id: 2, name:"Logitech Headset", image: <img src={LogitechHeadset} alt="Logitech Headset" width='300px' height='300px'/>, description : "Description 2", price: 10, stock: 10, category: "Headset" },
         {id: 3, name:"HyperX Headset", image: <img src={HyperXHeadset} alt="Logitech Headset" width='300px' height='300px'/>, description : "Description 3", price: 10, stock: 10, category: "Headset" },
         {id: 4, name:"Primus Headset", image: <img src={PrimusHeadset} alt="Logitech Headset" width='300px' height='300px'/>, description : "Description 4", price: 10, stock: 10, category: "Headset" },
@@ -34,32 +20,27 @@ const products = [
         if (products.lenght > 0) {
             setTimeout (() => {
                 resolve(products)
-            }, 1000)
+            }, 3000)
             } else {
-                reject(new Error("The system doesnt have information about the products"))
+                reject(("The system doesnt have information about the products"))
             }
     })
 
-    getProducts 
+    getProducts
         .then((res) => {
         })
         .catch((error) => {
             console.log(error)
         })
 
-const filteredProducts = products.filter((product) => product.category === category)
-
-console.log(filteredProducts)
-
 
     return (
-
-        <ItemList 
-        products = {filteredProducts} 
-        />
-
-
+        <>
+        <ItemDetail>
+            products = {products}
+        </ItemDetail>
+        </>
     )
 }
 
-export default ItemListContainer
+export default ItemDetailContainer

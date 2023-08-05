@@ -1,11 +1,13 @@
 import React from 'react'
 import NavBar from './components/NavBar'
+import Item from './components/Item'
 import ItemListContainer from './components/ItemListContainer'
 import QuantityButton from './components/QuantityButton'
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import Home from './components/Home'
 import Contact from './components/Contact'
 import About from './components/About'
+
 
 const App = () => {
 
@@ -14,14 +16,15 @@ const App = () => {
     <BrowserRouter>
       <NavBar />
 
-      <Routes>
+{/*       <Routes>
         <Route exact path = '/' element = {<Home />} />
         <Route exact path = '/about' element = {<About />} />
         <Route exact path = '/contact' element = {<Contact />} />
-      </Routes>
+        <Route exact path = 'category/:category' element={<ItemListContainer/>} />
+      </Routes> */}
 
 <div className='itemListContainer'>
-      <ItemListContainer/>
+      <Item/>
 </div>
 
       <QuantityButton />
