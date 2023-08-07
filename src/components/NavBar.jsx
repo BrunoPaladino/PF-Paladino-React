@@ -22,6 +22,7 @@ const NavBar = () => {
                         Category
                     </MenuButton>
                     <MenuList>
+
                         <MenuItem>
                             <Link to={`/category/${'Headset'}`}>
                                 Headset

@@ -49,18 +49,16 @@ const productRegister = [
             console.log(error)
         })
 
-/* const filteredProducts = productRegister.filter((product) => product.category === category)
+const filteredProducts = productRegister.filter((product) => product.category === category)
 
-console.log("Filtered Products:", filteredProducts)  */
+console.log("Filtered Products:", filteredProducts) 
 
 
     return (
     <>
-
         <ItemList 
-        products = {productRegister}
+            products = {filteredProducts}
         />
-
     </>
     )
 }

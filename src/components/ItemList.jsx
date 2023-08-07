@@ -6,7 +6,7 @@ const ItemList = ( {products} ) => {
 
     return (        //tomo la prop pasada por el ItemListContainer y hago un map para cada producto, asi puedo desestructurarlo por cada propiedad y se lo paso a Item
         <>
-            {products.map ( (product) => {
+            {products.map( (product) => {
                 return (
                     <Item
                         key = {product.id}

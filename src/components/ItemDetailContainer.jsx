@@ -1,10 +1,20 @@
 import React from 'react'
+import RedragonHeadset from '../assets/RedragonHeadset.jfif'
+import LogitechHeadset from '../assets/LogitechHeadset.jfif'
+import HyperXHeadset from  '../assets/HyperXHeadset.jfif'
+import PrimusHeadset from '../assets/PrimusHeadset.jpg'
+import LogitechMouse from '../assets/LogitechMouse.jfif'
+import RedragonMouse from '../assets/RedragonMouse.jpg'
+import RedragonKeyboardKumara from '../assets/RedragonKeyboardKumara.png'
+import RedragonKeyboardDeimos from '../assets/RedragonKeyboardDeimos.png'
+import LogitechKeyboard from '../assets/LogitechKeyboardPop.jfif'
+import HyperXKeyboard from '../assets/HyperXKeyboard.jpg'
 import ItemDetail from './ItemDetail'
 
 const ItemDetailContainer = () => {
 
-    const products = [
-        {id: 1, name:"Redragon Headset Zeus", image: <img src={RedragonHeadset} alt="Zeus Headset" width='300px' height='300px' borderRadius='lg'/>, description : "Description 1", price: 10, stock: 10, category: "Headset" },
+    const productRegister = [
+        {id: 1, name:"Redragon Headset Zeus", image: <img src={RedragonHeadset} alt="Zeus Headset" width='300px' height='300px' />, description : "Description 1", price: 10, stock: 10, category: "Headset" },
         {id: 2, name:"Logitech Headset", image: <img src={LogitechHeadset} alt="Logitech Headset" width='300px' height='300px'/>, description : "Description 2", price: 10, stock: 10, category: "Headset" },
         {id: 3, name:"HyperX Headset", image: <img src={HyperXHeadset} alt="Logitech Headset" width='300px' height='300px'/>, description : "Description 3", price: 10, stock: 10, category: "Headset" },
         {id: 4, name:"Primus Headset", image: <img src={PrimusHeadset} alt="Logitech Headset" width='300px' height='300px'/>, description : "Description 4", price: 10, stock: 10, category: "Headset" },
@@ -17,9 +27,9 @@ const ItemDetailContainer = () => {
     ]
     
     const getProducts = new Promise ((resolve, reject) => {
-        if (products.lenght > 0) {
+        if (productRegister.lenght > 0) {
             setTimeout (() => {
-                resolve(products)
+                resolve(productRegister)
             }, 3000)
             } else {
                 reject(("The system doesnt have information about the products"))
@@ -36,9 +46,9 @@ const ItemDetailContainer = () => {
 
     return (
         <>
-        <ItemDetail>
-            products = {products}
-        </ItemDetail>
+            <ItemDetail 
+                products = {productRegister}
+            />
         </>
     )
 }

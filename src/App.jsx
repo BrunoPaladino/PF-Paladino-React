@@ -27,11 +27,6 @@ const App = (product) => {
         <Route exact path = "/item/:id" element={<ItemDetailtContainer/>} />
       </Routes>
 
-<div className='itemListContainer'>
-      <ItemListContainer />
-</div>
-
-
     </BrowserRouter>
     </>
   )
