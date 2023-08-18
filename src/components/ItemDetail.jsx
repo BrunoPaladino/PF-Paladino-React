@@ -2,6 +2,7 @@ import React from 'react'
 import { useParams } from 'react-router-dom';
 import { Card,CardBody, Stack, Image, Heading, Text, Button, ButtonGroup, CardFooter, Divider} from '@chakra-ui/react'
 import { Link } from 'react-router-dom'
+import ItemCount from './ItemCount';
 
 const ItemDetail = ( {products} ) => {
     const {id} = useParams();
@@ -24,20 +25,13 @@ const ItemDetail = ( {products} ) => {
                                     <Text>
                                         {product.description}
                                     </Text>
-                                    <Text color='blue.600' fontSize='2xl'>
-                                        {product.price}
+                                    <Text color='orange.600' fontSize='2xl'>
+                                        US$ {product.price}
                                     </Text>
                                     </Stack>
                                 </CardBody>
                                 <Divider />
-                                <CardFooter>
-                                    <ButtonGroup spacing='2'>
-                                        <Link to={`/item/${id}`}>
-                                        <Button variant='solid' colorScheme='blue'> Add to cart </Button>
-                                        </Link>
-                                            {/* <Button variant='ghost' colorScheme='blue'> Add to cart </Button> */}
-                                    </ButtonGroup>
-                                </CardFooter>
+                                <ItemCount product={filteredProducts} id={product.id} />        {/* contador de cantidad de productos a agregar al cart */}
                             </Card>
                         </div>
                     </div>

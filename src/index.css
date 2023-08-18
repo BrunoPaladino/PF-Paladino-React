@@ -70,3 +70,19 @@ h2 {
     flex-direction: row;
     justify-content: center;
 }
+
+#buttonContainerQuantity{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-evenly;
+    padding: 10px;
+}
+
+#buttonContainerAux{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-evenly;
+    padding: 5px;
+}

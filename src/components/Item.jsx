@@ -17,7 +17,7 @@ const Item = ({ id, name, image, description, price, stock, category}) => {
                                 <Text>
                                     {description}
                                 </Text>
-                                <Text color='blue.600' fontSize='2xl'>
+                                <Text color='orange.600' fontSize='2xl'>
                                     US$ {price}
                                 </Text>
                                 </Stack>
@@ -26,9 +26,8 @@ const Item = ({ id, name, image, description, price, stock, category}) => {
                             <CardFooter>
                                 <ButtonGroup spacing='2'>
                                     <Link to={`/item/${id}`}>
-                                    <Button variant='solid' colorScheme='blue'> See more </Button>
+                                    <Button variant='solid' colorScheme='orange'> See more </Button>
                                     </Link>
-                                    {/* <Button variant='ghost' colorScheme='blue'> Add to cart </Button> */}
                                 </ButtonGroup>
                             </CardFooter>
                         </Card>

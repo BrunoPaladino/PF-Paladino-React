@@ -32,7 +32,7 @@ const ItemDetailContainer = () => {
                 resolve(productRegister)
             }, 3000)
             } else {
-                reject(("The system doesnt have information about the products"))
+                reject(/*( "The system doesnt have information about the products" )*/)
             }
     })
 
