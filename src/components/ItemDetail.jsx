@@ -31,7 +31,7 @@ const ItemDetail = ( {products} ) => {
                                     </Stack>
                                 </CardBody>
                                 <Divider />
-                                <ItemCount product={filteredProducts} id={product.id} />        {/* contador de cantidad de productos a agregar al cart */}
+                                <ItemCount product={product} id={product.id} />        {/* contador de cantidad de productos a agregar al cart */}
                             </Card>
                         </div>
                     </div>

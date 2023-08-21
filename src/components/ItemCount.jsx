@@ -12,7 +12,7 @@ const ItemCount = ({product, id}) => {   //recibe como prop al producto, desde "
 
     const {cart, setCart} = useContext(CartContext);        //de esta forma traigo el array carrito
 
-    /* console.log(cart); */
+    console.log(cart);
 
     const [quantity, amount] = useState(1);     
     //le doy valor inicial "1" a la variable quantity, no uso comillas ya que lo toma como string y al sumarle un producto coloca 11 y no 2
@@ -39,16 +39,21 @@ const ItemCount = ({product, id}) => {   //recibe como prop al producto, desde "
 // y todo eso lo ingreso en el producto a ingresar al carrito
 const onAdd = () => {
     setCart ( (cart) =>{
-        const cartUbication = cart.findIndex ((selection) => selection.id === id);     //findIndex devuelve la posicion del producto en el array
-        if (cartUbication == -1){                                                   //devuelve -1 si no encuentra la posicion (no esta el producto)
+        const updatedCart = [...cart];
+        const cartUbication = updatedCart.findIndex ((selection) => selection.id === id);//findIndex devuelve la posicion del producto en el array
+        console.log(cartUbication);
+        console.log(updatedCart);
+        if (cartUbication != -1){                                                  //devuelve -1 si no encuentra la posicion (no esta el producto)                       
+            updatedCart[cartUbication].quantityInCart = updatedCart[cartUbication].quantityInCart + quantity;
+            console.log(updatedCart);
+            return updatedCart
+        } else {                                             //si encuentra el producto, me trae la posicion y actualizo la cantidad en el carrito
             const productSelected = {...product, quantityInCart: quantity};     
-            cart.push(productSelected);
-            console.log(cart);
-        } else {                                            //si encuentra el producto, me trae la posicion y actualizo la cantidad en el carrito
-            cart[cartUbication].quantityInCart = cart[cartUbication].quantityInCart + quantity;
-            console.log(cart);
-        }
-    })                      
+            updatedCart.push(productSelected);
+            console.log(updatedCart);
+            return updatedCart;    //uso los return para que se devuelva al hook "setCart" el nuevo carrito (updatedCart) y este tome el lugar
+        }                         //del viejo cart. Esto es diferente a modificar el cart original directamente, porque puede tener problemas
+    })                           //con los cambios de estado del hook
 }
 
 
