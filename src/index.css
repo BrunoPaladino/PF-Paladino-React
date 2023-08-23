@@ -46,6 +46,12 @@ h2 {
     padding-left: 10px;
 }
 
+.filteredProductsContainer{
+    display: flex;
+}
+
+
+
 .itemListContainer{
     display: flex;
     flex-direction: row;
@@ -85,4 +91,23 @@ h2 {
     align-items: center;
     justify-content: space-evenly;
     padding: 5px;
+}
+
+.productInCart{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 15px;
+}
+
+.imageInCartContainer{
+    height: 100px;
+    width: 100px;
+}
+
+.detailInCart{
+    display: flex;
+    flex-direction: row-reverse;
+    align-items: center;
 }

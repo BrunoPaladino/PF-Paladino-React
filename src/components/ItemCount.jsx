@@ -5,14 +5,14 @@ import { useContext } from 'react';
 import { CartContext } from '../contexts/CartContext';
 
 
-const ItemCount = ({product, id}) => {   //recibe como prop al producto, desde "ItenDetail"
+const ItemCount = ({product, id}) => {   //recibe como prop al producto, desde "ItemDetail"
 
 /*     console.log(product);
     console.log(id); */
 
     const {cart, setCart} = useContext(CartContext);        //de esta forma traigo el array carrito
 
-    console.log(cart);
+/*     console.log(cart); */
 
     const [quantity, amount] = useState(1);     
     //le doy valor inicial "1" a la variable quantity, no uso comillas ya que lo toma como string y al sumarle un producto coloca 11 y no 2
