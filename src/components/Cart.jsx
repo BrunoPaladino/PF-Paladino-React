@@ -2,15 +2,30 @@ import React from 'react'
 import { useContext } from 'react'
 import { CartContext } from '../contexts/CartContext'
 import { Card, CardBody, Stack, Heading, Text, Divider, CardFooter, Button, Image } from '@chakra-ui/react'
-import ItemCount from './ItemCount'
+import ItemRemove from './ItemRemove'
 
 const Cart = () => {
 
-    const {cart, id} = useContext(CartContext)
+    const {cart, setCart} = useContext(CartContext)
 
     console.log(cart);
 
-
+    const removeFromCart =()=>{
+        setCart ( (cart) =>{
+            const updatedCart = [...cart];
+            const cartUbication = updatedCart.findIndex ((selection) => selection.id === id);//findIndex devuelve la posicion del producto en el array
+            console.log(cartUbication);
+            console.log(updatedCart);
+            if (cartUbication != -1){                                                  //devuelve -1 si no encuentra la posicion (no esta el producto)
+                console.log(updatedCart);
+                return updatedCart
+            } else {                                             //si encuentra el producto, me trae la posicion y actualizo la cantidad en el carrito
+                updatedCart.splice(cartUbication,1);
+                console.log(updatedCart);
+                return updatedCart;    //uso los return para que se devuelva al hook "setCart" el nuevo carrito (updatedCart) y este tome el lugar
+            }                         //del viejo cart. Esto es diferente a modificar el cart original directamente, porque puede tener problemas
+        })                           //con los cambios de estado del hook
+    }
 
     return (
         <div>
@@ -39,9 +54,7 @@ const Cart = () => {
                                 </Text>
                             </CardBody>
                             <CardFooter>
-                                <Button variant='solid' colorScheme='orange'>
-                                    Remove from the cart
-                                </Button>
+                                <ItemRemove id={product.id} /> {/* le paso por props el id, para remover el producto del cart */}
                             </CardFooter>
                             </Stack>
                             </div>
