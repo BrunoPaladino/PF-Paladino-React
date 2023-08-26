@@ -37,9 +37,9 @@ const Cart = () => {
                     <div className='productInCart' key = {product.id} id='productDetail'>
                         <Card direction={{ base: 'column', sm: 'row' }} overflow='hidden' variant='outline'>
                             <div className='detailInCart'>
-                            <p className='imageInCartContainer'>
-                                {product.image}
-                            </p>
+                            <div className='imageInCartContainer'>
+                                <img src={`${product.image}`} />
+                            </div>
                             <Stack>
                             <CardBody>
                                 <Heading size='sm'>{product.name}</Heading>

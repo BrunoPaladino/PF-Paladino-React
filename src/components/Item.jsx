@@ -2,16 +2,16 @@ import React from 'react'
 import { Card,CardBody, Stack, Image, Heading, Text, Button, ButtonGroup, CardFooter, Divider} from '@chakra-ui/react'
 import { Link } from 'react-router-dom'
 
-const Item = ({ id, name, image, description, price, stock, category}) => {
+const Item = ({ id, name, image, description, price, category}) => {
     return (
         <>
             <div>
                     <div className='itemContainer'>
                         <Card maxW='sm'>
                             <CardBody>
-                                <p>    {/* tomo la prop de ItemList y armo las cards para cada producto, Item es un componente de presentacion */}
-                                    {image}
-                                </p>
+                                <div className='itemImageContainer'>    {/* tomo la prop de ItemList y armo las cards para cada producto, Item es un componente de presentacion */}
+                                    <img src={`${image}`} />
+                                </div>
                                 <Stack mt='6' spacing='3'>
                                 <Heading size='md'> {name} </Heading>
                                 <Text>

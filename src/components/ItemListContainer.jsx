@@ -1,65 +1,39 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
-import RedragonHeadset from '../assets/RedragonHeadset.jfif'
-import LogitechHeadset from '../assets/LogitechHeadset.jfif'
-import HyperXHeadset from  '../assets/HyperXHeadset.jfif'
-import PrimusHeadset from '../assets/PrimusHeadset.jpg'
-import LogitechMouse from '../assets/LogitechMouse.jfif'
-import RedragonMouse from '../assets/RedragonMouse.jpg'
-import RedragonKeyboardKumara from '../assets/RedragonKeyboardKumara.png'
-import RedragonKeyboardDeimos from '../assets/RedragonKeyboardDeimos.png'
-import LogitechKeyboard from '../assets/LogitechKeyboardPop.jfif'
-import HyperXKeyboard from '../assets/HyperXKeyboard.jpg'
 import ItemList from './ItemList'
+import {collection, getDocs, getFirestore} from 'firebase/firestore'
 
 
 const ItemListContainer = () => {
 
-const {category} = useParams();
+    const {category} = useParams();
 
-const productRegister = [
-    {id: 1, name:"Redragon Headset Zeus", image:  <img src={RedragonHeadset} alt="Zeus Headset" width='300px' height='300px'/> , description : "Description 1", price: 10, stock: 10, category: "Headset" },
-    {id: 2, name:"Logitech Headset", image:  <img src={LogitechHeadset} alt="Logitech Headset" width='300px' height='300px'/> , description : "Description 2", price: 10, stock: 10, category: "Headset" },
-    {id: 3, name:"HyperX Headset", image:  <img src={HyperXHeadset} alt="Logitech Headset" width='300px' height='300px'/> , description : "Description 3", price: 10, stock: 10, category: "Headset" },
-    {id: 4, name:"Primus Headset", image: <img src={PrimusHeadset} alt="Logitech Headset" width='300px' height='300px'/> , description : "Description 4", price: 10, stock: 10, category: "Headset" },
-    {id: 5, name:"Logitech Mouse G203", image:  <img src={LogitechMouse} alt="Logitech Headset" width='300px' height='300px'/> , description : "Description 5", price: 10, stock: 10, category: "Mouse" },
-    {id: 6, name:"Redragon M711 Cobra", image:  <img src={RedragonMouse} alt="Logitech Headset" width='300px' height='300px'/> , description : "Description 6", price: 10, stock: 10, category: "Mouse" },
-    {id: 7, name:"Redragon Kumara Keyboard", image:  <img src={RedragonKeyboardKumara} alt="Logitech Headset" width='300px' height='300px'/> , description : "Description 7", price: 10, stock: 10, category: "Keyboard" },
-    {id: 8, name:"Redragon Deimos Keyboard", image: <img src={RedragonKeyboardDeimos} alt="Logitech Headset" width='300px' height='300px'/> , description : "Description 8", price: 10, stock: 10, category: "Keyboard" },
-    {id: 9, name:"Logitech Pop Keys", image: <img src={LogitechKeyboard} alt="Logitech Headset" width='300px' height='300px'/> , description : "Description 9", price: 10, stock: 10, category: "Keyboard" },
-    {id: 10, name:"HyperX Alloy Aqua", image: <img src={HyperXKeyboard} alt="Logitech Headset" width='300px' height='300px'/> , description : "Description 10", price: 10, stock: 10, category: "Keyboard" },
-    ]
+    const [productRegister, setProducts] = useState([]);        //creacion del array para mostrar productos
+    console.log(productRegister)
 
-    
-    const getProducts = new Promise ((resolve, reject) => {
-        if (productRegister.length > 0) {
-            setTimeout ( () => {
-                resolve(productRegister)
-            }, 1000)
-            } else {
-                reject(new Error("The system doesnt have information about the products"))
-            }
-    })
+    useEffect( () =>{
+        const dataBase = getFirestore()                         //traigo la base de datos de firestore
 
-    getProducts 
-        .then((res) => {
-            console.log(res)
+        const itemsCollection = collection (dataBase, "Productos")      //traigo los elementos de la base de datos "Productos"
+        getDocs(itemsCollection).then( (snapshot) =>{       //tomo la informacion de itemsColecction y mapeo lo que viene de los documentos
+            const docs = snapshot.docs.map( (doc) => ({id:doc.id, ...doc.data ()})) 
+            //data() nos trae la demas informacion del elemento de la coleccion
+            //por el diseño de firestore, ID no es una caracteristica del elemento 
+            //por ello la aclaramos por separado al sumarla al array
+            
+            setProducts(docs)       //introduzco lo que tengo en docs en el array
         })
-        .catch((error) => {
-            console.log(error)
-        })
+    }, [])
 
 const filteredProducts = productRegister.filter((product) => product.category === category)
+const stockProducts = productRegister.filter((element) => element.stock === 'available' )
 
 console.log("Filtered Products:", filteredProducts) 
 
-
     return (
-    <>
-        <ItemList 
-            products = {filteredProducts}
-        />
-    </>
+    <div>
+        {category ? <ItemList products = {filteredProducts}/> : <ItemList products={stockProducts} /> }
+    </div>
     )
 }
 

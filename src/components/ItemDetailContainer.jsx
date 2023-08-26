@@ -10,8 +10,32 @@ import RedragonKeyboardDeimos from '../assets/RedragonKeyboardDeimos.png'
 import LogitechKeyboard from '../assets/LogitechKeyboardPop.jfif'
 import HyperXKeyboard from '../assets/HyperXKeyboard.jpg'
 import ItemDetail from './ItemDetail'
+import { useEffect, useState } from 'react'
+import { useParams } from 'react-router-dom'
+import { collection, getDocs, getFirestore} from 'firebase/firestore'
 
 const ItemDetailContainer = () => {
+
+    const [productRegister, setProduct] = useState([])      //creo el array vacio donde pondremos los productos de la base de datos
+    console.log(productRegister)
+
+    useEffect( () => {
+        const dataBase = getFirestore();              //traigo la base de datos de firestore
+
+        const productsCollection = collection(dataBase, "Productos");     //traigo de la coleccion "Productos" un elemento y lo pongo en dataBase
+        getDocs(productsCollection).then( (querySnapshot) => {
+            const element  = querySnapshot.docs.map((doc) =>
+                ({ ...doc.data(), id: doc.id} ));                      //data() nos trae la demas informacion del elemento de la coleccion
+                setProduct(element);                                 //por el diseño de firestore, ID no es una caracteristica del elemento 
+        })                                                          //por ello la aclaramos por separado al sumarla al array
+    }, [])
+
+
+
+/* 
+
+
+
 
     const productRegister = [
         {id: 1, name:"Redragon Headset Zeus", image: <img src={RedragonHeadset} alt="Zeus Headset" width='300px' height='300px' />, description : "Description 1", price: 10, stock: 10, category: "Headset" },
@@ -32,8 +56,8 @@ const ItemDetailContainer = () => {
                 resolve(productRegister)
             }, 3000)
             } else {
-                reject(/*( "The system doesnt have information about the products" )*/)
-            }
+                reject(/*( "The system doesnt have information about the products" ))
+        }
     })
 
     getProducts
@@ -41,7 +65,7 @@ const ItemDetailContainer = () => {
         })
         .catch((error) => {
             console.log(error)
-        })
+        }) */
 
 
     return (
