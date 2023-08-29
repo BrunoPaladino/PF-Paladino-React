@@ -6,10 +6,7 @@ import cartIcon from '../assets/cartIcon.png'
 
 const CartWidget = () => {
 
-const {cart} = useContext(CartContext)
-
-const totalAmountOfProducts = cart.reduce((acumulator, product) => {
-    return acumulator + product.quantityInCart}, 0);
+const {cart, totalAmountOfProducts} = useContext(CartContext)       //toma el array carrito y la cantidad de productos en el array
 
 
     return (                    //retorna el icono del carrito y lo tomo desde el componente NavBar

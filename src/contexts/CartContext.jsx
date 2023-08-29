@@ -8,8 +8,14 @@ export const CartProvider = ({children}) => {
 
     const[cart, setCart] = useState([]);    //declaro el array del carrito de compras
 
+    const totalAmountOfProducts = cart.reduce((acumulator, product) => {        //total de productos en el carrito
+        return acumulator + product.quantityInCart}, 0);
+
+    const finalAmount = cart.reduce((acumulator, product) => {                  //total de la compra
+        return acumulator + product.totalPrice}, 0);
+
     return (
-        <CartContext.Provider value={{cart, setCart}}>      {/* variables a pasar a los children */}
+        <CartContext.Provider value={{cart, setCart, totalAmountOfProducts, finalAmount}}>      {/* variables a pasar a los children */}
             {children}
         </CartContext.Provider> 
     )

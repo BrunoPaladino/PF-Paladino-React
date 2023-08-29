@@ -1,12 +1,13 @@
 import React from 'react'
+import ItemRemove from './ItemRemove'
 import { useContext } from 'react'
 import { CartContext } from '../contexts/CartContext'
 import { Card, CardBody, Stack, Heading, Text, Divider, CardFooter, Button, Image } from '@chakra-ui/react'
-import ItemRemove from './ItemRemove'
+import { Link } from 'react-router-dom'
 
 const Cart = () => {
 
-    const {cart, setCart} = useContext(CartContext)
+    const {cart, setCart, totalAmountOfProducts, finalAmount} = useContext(CartContext)
 
     console.log(cart);
 
@@ -28,7 +29,7 @@ const Cart = () => {
     }
 
     return (
-        <div>
+        <div /* id='cartAndFormContainer' */>
             <h1 className='welcome'>
                 Cart
             </h1>
@@ -43,14 +44,15 @@ const Cart = () => {
                             <Stack>
                             <CardBody>
                                 <Heading size='sm'>{product.name}</Heading>
-                                <Text py='2'>
-                                {product.description}
-                                </Text>
+                                <Divider className='dividerCart'/>
                                 <Text>
                                     Quantity: {product.quantityInCart}
                                 </Text>
                                 <Text>
-                                    Total Price: {product.totalPrice}
+                                    Unit price: US$ {product.price}
+                                </Text>
+                                <Text>
+                                    Total Price: US$ {product.totalPrice}
                                 </Text>
                             </CardBody>
                             <CardFooter>
@@ -63,6 +65,33 @@ const Cart = () => {
                 )
             }
         )}
+            <div id='formContainer'>
+                <Card direction={{ base: 'column', sm: 'row' }} overflow='hidden' variant='outline'>
+                            <div className='formInCart'>
+                            <Stack>
+                            <CardBody>
+                                <Heading size='sm'>{"Purchase Summary"}</Heading>
+                                <Divider className='dividerCart'/>
+                                <Text>
+                                    Quantity of products: {totalAmountOfProducts}
+                                </Text>
+                                <Text>
+                                    Subtotal: US$ {finalAmount}
+                                </Text>
+                            </CardBody>
+                            <CardFooter>
+                                <Link to={'/form'}>
+                                    <Button variant='solid' colorScheme='orange'>
+                                        Continue to checkout
+                                    </Button>
+                                </Link>
+                            </CardFooter>
+                            </Stack>
+                            </div>
+                        </Card>
+            </div>
+            
+
         </div>
 )}
 

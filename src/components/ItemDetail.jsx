@@ -1,10 +1,9 @@
 import React from 'react'
+import ItemCount from './ItemCount';
 import { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import { Card,CardBody, Stack, Image, Heading, Text, Button, ButtonGroup, CardFooter, Divider} from '@chakra-ui/react'
-import { Link } from 'react-router-dom'
 import {doc, getDoc, getFirestore} from 'firebase/firestore'
-import ItemCount from './ItemCount';
 
 const ItemDetail = ( {products} ) => {
     
@@ -17,8 +16,8 @@ const ItemDetail = ( {products} ) => {
     useEffect( () => {
         const dataBase = getFirestore()                 //traigo la base de datos de firestore
 
-        const getProduct = doc(dataBase, "Productos", `${id}`);     //traigo de la coleccion "Productos" un elemento y lo pongo en dataBase
-        getDoc(getProduct).then( (snapshot) => {
+        const getProduct = doc(dataBase, "Productos", `${id}`);     //el segundo parametro (Productos) dice a que coleccion accedemos y el tercero
+        getDoc(getProduct).then( (snapshot) => {                    //a que documento de dicha coleccion
             if( snapshot.exists() ) {           //si existe lo que traemos del getProduct, lo guardo en docs y este lo ingreso en el array
                 const docs = snapshot.data()
                 setProduct( docs )

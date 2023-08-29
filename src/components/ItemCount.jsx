@@ -45,10 +45,12 @@ const onAdd = () => {
         console.log(updatedCart);
         if (cartUbication != -1){                                                  //devuelve -1 si no encuentra la posicion (no esta el producto)                       
             updatedCart[cartUbication].quantityInCart = updatedCart[cartUbication].quantityInCart + quantity;
+            updatedCart[cartUbication].totalPrice = updatedCart[cartUbication].quantityInCart * updatedCart[cartUbication].price;
             console.log(updatedCart);
             return updatedCart
         } else {                                             //si encuentra el producto, me trae la posicion y actualizo la cantidad en el carrito
-            const productSelected = {...product, quantityInCart: quantity};     
+            const totalPrice = quantity* product.price;
+            const productSelected = {...product, quantityInCart: quantity, totalPrice};     
             updatedCart.push(productSelected);
             console.log(updatedCart);
             return updatedCart;    //uso los return para que se devuelva al hook "setCart" el nuevo carrito (updatedCart) y este tome el lugar

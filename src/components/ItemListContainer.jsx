@@ -14,12 +14,11 @@ const ItemListContainer = () => {
     useEffect( () =>{
         const dataBase = getFirestore()                         //traigo la base de datos de firestore
 
-        const itemsCollection = collection (dataBase, "Productos")      //traigo los elementos de la base de datos "Productos"
+        const itemsCollection = collection (dataBase, "Productos")      //traigo los elementos de la base de la coleccion "Productos"
         getDocs(itemsCollection).then( (snapshot) =>{       //tomo la informacion de itemsColecction y mapeo lo que viene de los documentos
-            const docs = snapshot.docs.map( (doc) => ({id:doc.id, ...doc.data ()})) 
-            //data() nos trae la demas informacion del elemento de la coleccion
-            //por el diseño de firestore, ID no es una caracteristica del elemento 
-            //por ello la aclaramos por separado al sumarla al array
+            const docs = snapshot.docs.map( (doc) => ( {id:doc.id, ...doc.data ()} )) 
+            //data() nos trae la demas informacion del elemento de la coleccion, pero por el diseño de firestore,
+            // ID no es una caracteristica del elemento, por ello la aclaramos por separado al sumarla al array
             
             setProducts(docs)       //introduzco lo que tengo en docs en el array
         })

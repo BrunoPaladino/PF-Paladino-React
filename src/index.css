@@ -114,10 +114,32 @@ h2 {
 .imageInCartContainer{
     height: 100px;
     width: 100px;
+    padding-right: 5px;
 }
 
 .detailInCart{
     display: flex;
     flex-direction: row-reverse;
     align-items: center;
+}
+
+.dividerCart{
+    margin-top: 15px;
+    margin-bottom: 15px;
+}
+
+#formContainer{
+    display: flex;
+    flex-direction: row;
+}
+
+#cartAndFormContainer{
+    display: flex;
+}
+
+input{
+    border: 1px solid black;
+    margin-left: 5px;
+    padding-left: 5px;
+    border-radius: 8px;
 }

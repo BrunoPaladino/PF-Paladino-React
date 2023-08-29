@@ -10,6 +10,7 @@ import ItemListContainer from './components/ItemListContainer'
 import ItemDetailtContainer from './components/ItemDetailContainer'
 import { CartContext, CartProvider } from './contexts/CartContext'
 import ItemCount from './components/ItemCount'
+import Form from './components/Form'
 
 
 const App = (product) => {
@@ -27,6 +28,7 @@ const App = (product) => {
             <Route exact path = "/product/:id" element={<ItemDetail/>} />
             <Route exact path = "/category/:category" element={<ItemListContainer/>} />
             <Route exact path = "/item/:id" element={<ItemDetailtContainer/>} />
+            <Route exact path = "/form" element={<Form />} />
           </Routes>
       </CartProvider> 
     </BrowserRouter>
