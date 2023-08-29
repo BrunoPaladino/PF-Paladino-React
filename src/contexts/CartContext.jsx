@@ -14,8 +14,16 @@ export const CartProvider = ({children}) => {
     const finalAmount = cart.reduce((acumulator, product) => {                  //total de la compra
         return acumulator + product.totalPrice}, 0);
 
+    let cartEmpty;
+
+    if(cart.length===0){
+        cartEmpty=true;
+    } else {
+        cartEmpty=false;
+    }
+
     return (
-        <CartContext.Provider value={{cart, setCart, totalAmountOfProducts, finalAmount}}>      {/* variables a pasar a los children */}
+        <CartContext.Provider value={{cart, setCart, totalAmountOfProducts, finalAmount, cartEmpty}}>      {/* variables a pasar a los children */}
             {children}
         </CartContext.Provider> 
     )

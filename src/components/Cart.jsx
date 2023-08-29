@@ -7,9 +7,10 @@ import { Link } from 'react-router-dom'
 
 const Cart = () => {
 
-    const {cart, setCart, totalAmountOfProducts, finalAmount} = useContext(CartContext)
+    const {cart, setCart, totalAmountOfProducts, finalAmount, cartEmpty} = useContext(CartContext)
 
     console.log(cart);
+    console.log(cartEmpty);
 
     const removeFromCart =()=>{
         setCart ( (cart) =>{
@@ -29,71 +30,87 @@ const Cart = () => {
     }
 
     return (
-        <div /* id='cartAndFormContainer' */>
-            <h1 className='welcome'>
-                Cart
-            </h1>
-            {cart.map( (product) => {
-                return (    
-                    <div className='productInCart' key = {product.id} id='productDetail'>
-                        <Card direction={{ base: 'column', sm: 'row' }} overflow='hidden' variant='outline'>
-                            <div className='detailInCart'>
-                            <div className='imageInCartContainer'>
-                                <img src={`${product.image}`} />
-                            </div>
-                            <Stack>
-                            <CardBody>
-                                <Heading size='sm'>{product.name}</Heading>
-                                <Divider className='dividerCart'/>
-                                <Text>
-                                    Quantity: {product.quantityInCart}
-                                </Text>
-                                <Text>
-                                    Unit price: US$ {product.price}
-                                </Text>
-                                <Text>
-                                    Total Price: US$ {product.totalPrice}
-                                </Text>
-                            </CardBody>
-                            <CardFooter>
-                                <ItemRemove id={product.id} /> {/* le paso por props el id, para remover el producto del cart */}
-                            </CardFooter>
-                            </Stack>
-                            </div>
-                        </Card>
-                    </div>
-                )
-            }
-        )}
-            <div id='formContainer'>
-                <Card direction={{ base: 'column', sm: 'row' }} overflow='hidden' variant='outline'>
-                            <div className='formInCart'>
-                            <Stack>
-                            <CardBody>
-                                <Heading size='sm'>{"Purchase Summary"}</Heading>
-                                <Divider className='dividerCart'/>
-                                <Text>
-                                    Quantity of products: {totalAmountOfProducts}
-                                </Text>
-                                <Text>
-                                    Subtotal: US$ {finalAmount}
-                                </Text>
-                            </CardBody>
-                            <CardFooter>
-                                <Link to={'/form'}>
-                                    <Button variant='solid' colorScheme='orange'>
-                                        Continue to checkout
-                                    </Button>
-                                </Link>
-                            </CardFooter>
-                            </Stack>
-                            </div>
-                        </Card>
-            </div>
-            
+        <>
+        {cartEmpty === true ? (    
+                <div>       {/* si el carrito esta vacio, renderiza "The cart is empty", sino (:) renderiza el producto y el resumen de compra */}
+                    <h1 className='welcome'>
+                        Cart
+                    </h1>
+                    <h3>
+                        The cart is empty
+                    </h3>
+                    <p>But you can continue looking for a present for your friends or for yourself!</p>
+                </div>
 
-        </div>
-)}
+            ) : (           //el ":" en renderizado funciona como el "else"
+
+                <div /* id='cartAndFormContainer' */>
+                    <h1 className='welcome'>
+                        Cart
+                    </h1>
+                    {cart.map( (product) => {
+                        return (    
+                            <div className='productInCart' key = {product.id} id='productDetail'>
+                                <Card direction={{ base: 'column', sm: 'row' }} overflow='hidden' variant='outline'>
+                                    <div className='detailInCart'>
+                                    <div className='imageInCartContainer'>
+                                        <img src={`${product.image}`} />
+                                    </div>
+                                    <Stack>
+                                    <CardBody>
+                                        <Heading size='sm'>{product.name}</Heading>
+                                        <Divider className='dividerCart'/>
+                                        <Text>
+                                            Quantity: {product.quantityInCart}
+                                        </Text>
+                                        <Text>
+                                            Unit price: US$ {product.price}
+                                        </Text>
+                                        <Text>
+                                            Total Price: US$ {product.totalPrice}
+                                        </Text>
+                                    </CardBody>
+                                    <CardFooter>
+                                        <ItemRemove id={product.id} /> {/* le paso por props el id, para remover el producto del cart */}
+                                    </CardFooter>
+                                    </Stack>
+                                    </div>
+                                </Card>
+                            </div>
+                        )
+                    }
+                )}
+                    <div id='formContainer'>
+                        <Card direction={{ base: 'column', sm: 'row' }} overflow='hidden' variant='outline'>
+                                    <div className='formInCart'>
+                                    <Stack>
+                                    <CardBody>
+                                        <Heading size='sm'>{"Purchase Summary"}</Heading>
+                                        <Divider className='dividerCart'/>
+                                        <Text>
+                                            Quantity of products: {totalAmountOfProducts}
+                                        </Text>
+                                        <Text>
+                                            Subtotal: US$ {finalAmount}
+                                        </Text>
+                                    </CardBody>
+                                    <CardFooter>
+                                        <Link to={'/form'}>
+                                            <Button variant='solid' colorScheme='orange'>
+                                                Continue to checkout
+                                            </Button>
+                                        </Link>
+                                    </CardFooter>
+                                    </Stack>
+                                    </div>
+                                </Card>
+                    </div>
+                    
+
+                </div>)}
+        </>
+    )
+}
 
 
 export default Cart
