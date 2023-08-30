@@ -18,28 +18,34 @@ const NavBar = () => {
             <Flex>
             <Box p='4'>
                 <Menu>
-                    <MenuButton as={Button} rightIcon={<ChevronDownIcon />}>
+                    <MenuButton className='generalButton' as={Button} rightIcon={<ChevronDownIcon />}>
                         Category
                     </MenuButton>
                     <MenuList>
 
                         <MenuItem>
-                            <Link to={`/category/${'Headset'}`}>
-                                Headset
+                            <Link  to={`/category/${'Headset'}`}>
+                                <button className='generalButton'>
+                                    Headset
+                                </button>
                             </Link>
                         </MenuItem>
 
 
                         <MenuItem>
-                            <Link to={`/category/${'Mouse'}`}>
-                                Mouse
+                            <Link  to={`/category/${'Mouse'}`}>
+                                <button className='generalButton'>
+                                    Mouse
+                                </button>
                             </Link>
                         </MenuItem>
                         
 
                         <MenuItem>
-                            <Link to={`/category/${'Keyboard'}`}>
-                                Keyboard
+                            <Link  to={`/category/${'Keyboard'}`}>
+                                <button className='generalButton'>
+                                    Keyboard
+                                </button>
                             </Link>
                         </MenuItem>
 

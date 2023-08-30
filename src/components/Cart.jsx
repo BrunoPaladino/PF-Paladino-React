@@ -32,7 +32,7 @@ const Cart = () => {
     return (
         <>
         {cartEmpty === true ? (    
-                <div>       {/* si el carrito esta vacio, renderiza "The cart is empty", sino (:) renderiza el producto y el resumen de compra */}
+                <div id='cartEmpty'>       {/* si el carrito esta vacio, renderiza "The cart is empty", sino (:) renderiza el producto y el resumen de compra */}
                     <h1 className='welcome'>
                         Cart
                     </h1>
@@ -40,14 +40,23 @@ const Cart = () => {
                         The cart is empty
                     </h3>
                     <p>But you can continue looking for a present for your friends or for yourself!</p>
+                    <Link to={'/'}>
+                        <button className='generalButton'>
+                            <span>
+                                See Products
+                            </span>
+                        </button>
+                    </Link>
                 </div>
 
             ) : (           //el ":" en renderizado funciona como el "else"
 
-                <div /* id='cartAndFormContainer' */>
-                    <h1 className='welcome'>
-                        Cart
-                    </h1>
+            <div>
+                <h1 className='welcome'>
+                    Cart
+                </h1>
+                <div id='cartAndResumeContainer'>
+                    <div className='productCartContainer'>
                     {cart.map( (product) => {
                         return (    
                             <div className='productInCart' key = {product.id} id='productDetail'>
@@ -79,8 +88,8 @@ const Cart = () => {
                             </div>
                         )
                     }
-                )}
-                    <div id='formContainer'>
+                )}</div>
+                    <div id='formCartContainer'>
                         <Card direction={{ base: 'column', sm: 'row' }} overflow='hidden' variant='outline'>
                                     <div className='formInCart'>
                                     <Stack>
@@ -96,9 +105,11 @@ const Cart = () => {
                                     </CardBody>
                                     <CardFooter>
                                         <Link to={'/form'}>
-                                            <Button variant='solid' colorScheme='orange'>
-                                                Continue to checkout
-                                            </Button>
+                                            <button className='generalButton' >
+                                                <span>
+                                                    Continue to checkout
+                                                </span>
+                                            </button>
                                         </Link>
                                     </CardFooter>
                                     </Stack>
@@ -107,7 +118,8 @@ const Cart = () => {
                     </div>
                     
 
-                </div>)}
+                </div>
+            </div>)}
         </>
     )
 }

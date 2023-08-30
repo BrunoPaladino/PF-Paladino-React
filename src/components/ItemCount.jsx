@@ -62,14 +62,14 @@ const onAdd = () => {
     return (
         <div>
         <div id='buttonContainerQuantity'>
-            <Button variant='outline' colorScheme='orange' onClick = {removeProduct}> - </Button>
+            <button className='btn' onClick = {removeProduct}> - </button>
             <p>{quantity}</p>
-            <Button variant='outline' colorScheme='orange' onClick = {addProduct}> + </Button>
+            <button className='btn' onClick = {addProduct}> + </button>
         </div>
 
         <div id='buttonContainerAux'>
-            <Button variant='ghost' colorScheme='orange' onClick = {reset}> Reset </Button>
-            <Button variant='solid' colorScheme='orange' onClick = {onAdd}> Add to Cart </Button>
+            <button className='generalButton' id='resetAndAddButton' onClick = {reset}> <span>Reset</span> </button>
+            <button className='generalButton' id='resetAndAddButton' onClick = {onAdd}> <span>Add to Cart </span></button>
         </div>
 
         </div>

@@ -46,8 +46,8 @@ const confirmBought = (event) => {
             <h1 className='welcome'>
                 Formulary
             </h1>
-            <div id='formContainer'>
 
+            <div id='formContainer'>
             <p>Order number: {orderId}</p>
 
             <form onSubmit={confirmBought}>
@@ -57,25 +57,25 @@ const confirmBought = (event) => {
                             <CardBody>
                                 <Heading size='sm'>{"Purchase Order"}</Heading>
                                 <Divider className='dividerCart'/>
-                                <Text>
+                                <Text className='formText'>
                                     First name and Last name: 
                                         <input type="text" placeholder='Nombre'
                                         onChange={(event)=> setName(event.target.value)}
                                         />
                                 </Text>
-                                <Text>
+                                <Text className='formText'>
                                     email: 
                                         <input type="email" placeholder='email'
                                         onChange={(event)=> setEmail(event.target.value)}
                                         />
                                 </Text>
-                                <Text>
+                                <Text className='formText'>
                                     Telephone: 
                                         <input type="number" placeholder='Nombre'
                                         onChange={(event)=> setTelephone(event.target.value)}
                                         />
                                 </Text>
-                                <Text>
+                                <Text className='formText'>
                                     Adress: 
                                         <input type="text" placeholder='direccion'
                                         onChange={(event)=> setAdress(event.target.value)}
@@ -83,9 +83,11 @@ const confirmBought = (event) => {
                                 </Text>
                             </CardBody>
                             <CardFooter>
-                                    <Button type="submit" variant='solid' colorScheme='orange'>
-                                        Confirm Purchase
-                                    </Button>
+                                    <button className='generalButton' type="submit">
+                                        <span>
+                                            Confirm Purchase
+                                        </span>
+                                    </button>
                             </CardFooter>
                             </Stack>
                             </div>

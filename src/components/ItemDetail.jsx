@@ -28,7 +28,7 @@ const ItemDetail = ( {products} ) => {
     const filteredProducts = products.filter ((product) => product.id == id)
 
     return (
-        <div id='productDetail'>
+        <div>
             {filteredProducts.map( (product) => {
                 return (
                 <div key = {product.id} id='productDetail'>
@@ -43,12 +43,12 @@ const ItemDetail = ( {products} ) => {
                                     <Text>
                                         {product.description}
                                     </Text>
-                                    <Text color='orange.600' fontSize='2xl'>
+                                    <Text color='green.600' fontSize='2xl'>
                                         US$ {product.price}
                                     </Text>
                                     </Stack>
                                 </CardBody>
-                                <Divider />
+                                <Divider/>
                                 <ItemCount product={product} id={product.id} />        {/* contador de cantidad de productos a agregar al cart */}
                             </Card>
                         </div>

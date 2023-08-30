@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom'
 const Item = ({ id, name, image, description, price, category}) => {
     return (
         <>
-            <div>
+            <div className='allProductsContainer'>
                     <div className='itemContainer'>
                         <Card maxW='sm'>
                             <CardBody>
@@ -17,8 +17,10 @@ const Item = ({ id, name, image, description, price, category}) => {
                                 <Text>
                                     {description}
                                 </Text>
-                                <Text color='orange.600' fontSize='2xl'>
-                                    US$ {price}
+                                <Text  color='green.600' fontSize='2xl'>
+                                    <p className='priceText'>
+                                        US$ {price}
+                                    </p>
                                 </Text>
                                 </Stack>
                             </CardBody>
@@ -26,7 +28,11 @@ const Item = ({ id, name, image, description, price, category}) => {
                             <CardFooter>
                                 <ButtonGroup spacing='2'>
                                     <Link to={`/item/${id}`}>
-                                    <Button variant='solid' colorScheme='orange'> See more </Button>
+                                        <button className='generalButton'>
+                                            <span> 
+                                                View More
+                                            </span>
+                                        </button>
                                     </Link>
                                 </ButtonGroup>
                             </CardFooter>

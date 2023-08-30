@@ -21,9 +21,11 @@ const ItemRemove = ({id}) => {
 
     return (
         <div>
-            <Button variant='solid' colorScheme='orange' onClick = {removeFromCart}>
-                Remove from the Cart
-            </Button>
+            <button className='generalButton' onClick = {removeFromCart}>
+                <span>
+                    Remove from the Cart
+                </span>    
+            </button>
         </div>
     )
 }

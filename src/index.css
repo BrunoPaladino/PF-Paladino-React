@@ -19,7 +19,7 @@ h3{
 
 #title {
     color: rgb(11, 9, 9);
-    background: linear-gradient(rgb(215, 122, 16)10%, rgb(255, 255, 255) );
+    background: linear-gradient(rgb(115, 79, 154)20%, rgb(255, 255, 255) );
     display: flex;
     justify-content: flex-start;
     font-size: 32px;
@@ -28,6 +28,20 @@ h3{
     max-width: 100%;
     flex-direction: row;
     align-items: center;
+}
+
+#footer {
+    color: rgb(11, 9, 9);
+    background: linear-gradient( rgb(255, 255, 255)20%, rgb(115, 79, 154));
+    font-size: 16px;
+    height: 35px;
+    width: 100%;
+    max-width: 100%;
+    flex-direction: row;
+    align-items: center;
+    margin-top: 50px;
+    position: fixed;
+    bottom: 0;
 }
 
 h2 {
@@ -46,7 +60,7 @@ h2 {
     display: flex;
     justify-content: center;
     padding-left: 1px;
-    background-color: rgb(255, 145, 0);
+    background-color: rgb(139, 212, 80);
     border-radius: 100%;
 }
 
@@ -54,7 +68,9 @@ h2 {
     display: flex;
 }
 
-
+.priceText{
+    color: rgb(240, 139, 78);
+}
 
 .itemListContainer{
     display: flex;
@@ -128,13 +144,37 @@ h2 {
     margin-bottom: 15px;
 }
 
-#formContainer{
+/* Configuracion de carrito, vacio y con productos y resumen de compra */
+#cartEmpty{
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
+    align-items: center;
 }
 
-#cartAndFormContainer{
+#cartAndResumeContainer{
+    display: grid;
+    grid-template-areas: "product form" "product form" "product form";
+    justify-content: space-evenly
+}
+
+.productCartContainer{
+    grid-area: product;
+}
+
+#formCartContainer{
+    grid-area: form;
+    margin: 15px;
+}
+/* Fin de configuracion de carrito, vacio y con productos y resumen de compra */
+
+
+/* Formulario de confirmacion de compra */
+#formContainer{
     display: flex;
+    flex-direction: column;
+    width: auto;
+    justify-content: center;
+    align-items: center;
 }
 
 input{
@@ -143,3 +183,144 @@ input{
     padding-left: 5px;
     border-radius: 8px;
 }
+
+.formText{
+    margin: 10px;
+}
+/* Fin formulario de confirmacion de compra */
+
+
+
+/* Botones del ItemDetail */
+#resetAndAddButton{
+    padding: 5px;
+    margin: 10px;
+}
+/* Fin botones del ItemDetail */
+
+
+
+
+/* Animacion de boton */
+/* Botones de cantidad a agregar al carrito */
+.btn {
+    color: #B500FF;
+    padding: 13px 20px;
+    border: 2px solid #B500FF;
+    font-size: 17px;
+    transition: 0.3s;
+    border-radius: 10px;
+    font-family: Arial;
+    font-weight: 600;
+}
+
+.btn:hover {
+    transition: 0.3s;
+    background-color: #B500FF;
+    margin-top: -5px;
+    color: #fff;
+    animation-name: button_animation;
+    animation-duration: 3s;
+    animation-iteration-count: infinite;
+}
+
+.btn:active {
+    transform: scale(0.97);
+}
+
+@keyframes button_animation {
+    0% {
+        background-color: #B500FF;
+    }
+    25% {
+        background-color: #000000;
+    }
+    50% {
+        background-color: #B500FF;
+    }
+    75% {
+        background-color: #000000;
+    }
+    100% {
+        background-color: #B500FF;
+    }
+}
+/* Fin botones de cantidad a agregar al carrito */
+
+
+
+
+
+
+
+/* Botones generales de la app */
+.generalButton {
+    display: inline-block;
+    width: 175px;
+    height: 50px;
+    border-radius: 10px;
+    border: 1px solid #03045e;
+    position: relative;
+    overflow: hidden;
+    transition: all 0.5s ease-in;
+    z-index: 1;
+}
+
+.generalButton::before,
+.generalButton::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    width: 0;
+    height: 100%;
+    transform: skew(15deg);
+    transition: all 0.5s;
+    overflow: hidden;
+    z-index: -1;
+}
+
+.generalButton::before {
+    left: -10px;
+    background: #240046;
+}
+
+.generalButton::after {
+    right: -10px;
+    background: #5a189a;
+}
+
+.generalButton:hover::before,
+.generalButton:hover::after {
+    width: 58%;
+}
+
+.generalButton:hover span {
+    color: #e0aaff;
+    transition: 0.3s;
+}
+
+.generalButton span {
+    color: #03045e;
+    font-size: 16px;
+    transition: all 0.3s ease-in;
+}
+/* Fin botones generales de la app */
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
