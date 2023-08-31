@@ -15,7 +15,6 @@ export const CartProvider = ({children}) => {
         return acumulator + product.totalPrice}, 0);
 
     let cartEmpty;
-
     if(cart.length===0){
         cartEmpty=true;
     } else {

@@ -39,7 +39,7 @@ const Cart = () => {
                     <h3>
                         The cart is empty
                     </h3>
-                    <p>But you can continue looking for a present for your friends or for yourself!</p>
+                    <p id='messageContinueBuying'>But you can continue looking for a present for your friends or for yourself!</p>
                     <Link to={'/'}>
                         <button className='generalButton'>
                             <span>

@@ -41,10 +41,15 @@ const ItemDetail = ( {products} ) => {
                                     <Stack mt='6' spacing='3'>
                                     <Heading size='md'> {product.name} </Heading>
                                     <Text>
-                                        {product.description}
+                                        <p id='productDescription'>
+                                            {product.description}
+                                        </p>
+                                        
                                     </Text>
-                                    <Text color='green.600' fontSize='2xl'>
-                                        US$ {product.price}
+                                    <Text fontSize='2xl'>
+                                        <p className='priceText'>
+                                            US$ {product.price}
+                                        </p>
                                     </Text>
                                     </Stack>
                                 </CardBody>

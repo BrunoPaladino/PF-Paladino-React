@@ -48,51 +48,49 @@ const confirmBought = (event) => {
             </h1>
 
             <div id='formContainer'>
-            <p>Order number: {orderId}</p>
-
-            <form onSubmit={confirmBought}>
-                <Card  direction={{ base: 'column', sm: 'row' }} overflow='hidden' variant='outline'>
-                            <div className='formInCart'>
-                            <Stack>
-                            <CardBody>
-                                <Heading size='sm'>{"Purchase Order"}</Heading>
-                                <Divider className='dividerCart'/>
-                                <Text className='formText'>
-                                    First name and Last name: 
-                                        <input type="text" placeholder='Nombre'
-                                        onChange={(event)=> setName(event.target.value)}
-                                        />
-                                </Text>
-                                <Text className='formText'>
-                                    email: 
-                                        <input type="email" placeholder='email'
-                                        onChange={(event)=> setEmail(event.target.value)}
-                                        />
-                                </Text>
-                                <Text className='formText'>
-                                    Telephone: 
-                                        <input type="number" placeholder='Nombre'
-                                        onChange={(event)=> setTelephone(event.target.value)}
-                                        />
-                                </Text>
-                                <Text className='formText'>
-                                    Adress: 
-                                        <input type="text" placeholder='direccion'
-                                        onChange={(event)=> setAdress(event.target.value)}
-                                        />
-                                </Text>
-                            </CardBody>
-                            <CardFooter>
-                                    <button className='generalButton' type="submit">
-                                        <span>
-                                            Confirm Purchase
-                                        </span>
-                                    </button>
-                            </CardFooter>
-                            </Stack>
-                            </div>
-                        </Card>
-                        </form>
+                <form onSubmit={confirmBought}>
+                    <Card  direction={{ base: 'column', sm: 'row' }} overflow='hidden' variant='outline'>
+                                <div className='formInCart'>
+                                <Stack>
+                                <CardBody>
+                                    <Heading size='sm'>{"Purchase Order"}</Heading>
+                                    <Divider className='dividerCart'/>
+                                    <Text className='formText'>
+                                        First name and Last name: 
+                                            <input type="text" placeholder='John Doe'
+                                            onChange={(event)=> setName(event.target.value)}
+                                            />
+                                    </Text>
+                                    <Text className='formText'>
+                                        email: 
+                                            <input type="email" placeholder='JohnDoe@email.com'
+                                            onChange={(event)=> setEmail(event.target.value)}
+                                            />
+                                    </Text>
+                                    <Text className='formText'>
+                                        Telephone: 
+                                            <input type="number" placeholder='011 7946 0129'
+                                            onChange={(event)=> setTelephone(event.target.value)}
+                                            />
+                                    </Text>
+                                    <Text className='formText'>
+                                        Adress: 
+                                            <input type="text" placeholder='Fake Street 143'
+                                            onChange={(event)=> setAdress(event.target.value)}
+                                            />
+                                    </Text>
+                                </CardBody>
+                                <CardFooter>
+                                        <button className='generalButton' type="submit">
+                                            <span>
+                                                Confirm Purchase
+                                            </span>
+                                        </button>
+                                </CardFooter>
+                                </Stack>
+                                </div>
+                    </Card>
+                </form>
             </div>
         </>
     )

@@ -39,7 +39,7 @@ h3{
     max-width: 100%;
     flex-direction: row;
     align-items: center;
-    margin-top: 50px;
+    margin-top: 60px;
     position: fixed;
     bottom: 0;
 }
@@ -82,7 +82,8 @@ h2 {
 .itemContainer{
     display: flex;
     flex-direction: row;
-    margin-bottom: 50px;
+    margin-top: 15px;
+    margin-bottom: 20px;
 }
 
 
@@ -119,6 +120,10 @@ h2 {
     padding: 5px;
 }
 
+#messageContinueBuying{
+    margin-bottom: 15px;
+}
+
 .productInCart{
     display: flex;
     flex-direction: column;
@@ -134,9 +139,13 @@ h2 {
 }
 
 .detailInCart{
-    display: flex;
-    flex-direction: row-reverse;
     align-items: center;
+}
+
+#productDescription{
+    display: flex;
+    justify-content: center;
+    text-align:justify;
 }
 
 .dividerCart{
