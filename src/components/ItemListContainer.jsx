@@ -9,7 +9,6 @@ const ItemListContainer = () => {
     const {category} = useParams();
 
     const [productRegister, setProducts] = useState([]);        //creacion del array para mostrar productos
-    console.log(productRegister)
 
     useEffect( () =>{
         const dataBase = getFirestore()                         //traigo la base de datos de firestore
@@ -26,8 +25,7 @@ const ItemListContainer = () => {
 
 const filteredProducts = productRegister.filter((product) => product.category === category)
 const stockProducts = productRegister.filter((element) => element.stock === 'available' )
-
-console.log("Filtered Products:", filteredProducts) 
+ 
 
     return (
     <div>

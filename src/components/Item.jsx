@@ -1,5 +1,5 @@
 import React from 'react'
-import { Card,CardBody, Stack, Image, Heading, Text, Button, ButtonGroup, CardFooter, Divider} from '@chakra-ui/react'
+import { Card,CardBody, Stack, Heading, ButtonGroup, CardFooter, Divider} from '@chakra-ui/react'
 import { Link } from 'react-router-dom'
 
 const Item = ({ id, name, image, description, price, category}) => {
@@ -14,11 +14,9 @@ const Item = ({ id, name, image, description, price, category}) => {
                                 </div>
                                 <Stack mt='6' spacing='3'>
                                 <Heading size='md'> {name} </Heading>
-                                <Text  color='green.600' fontSize='2xl'>
                                     <p className='priceText'>
                                         US$ {price}
                                     </p>
-                                </Text>
                                 </Stack>
                             </CardBody>
                             <Divider />

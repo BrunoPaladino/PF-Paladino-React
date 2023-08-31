@@ -1,7 +1,6 @@
 import React from 'react'
 import { useContext } from 'react'
 import { CartContext } from '../contexts/CartContext'
-import { Button } from '@chakra-ui/react'
 
 const ItemRemove = ({id}) => {
 

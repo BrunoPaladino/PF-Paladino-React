@@ -17,7 +17,7 @@ h3{
 }
   /* FIN DE ESTILO Y COLOR DE TEXTO */
 
-#title {
+#titleContainer {
     color: rgb(11, 9, 9);
     background: linear-gradient(rgb(115, 79, 154)20%, rgb(255, 255, 255) );
     display: flex;
@@ -28,6 +28,24 @@ h3{
     max-width: 100%;
     flex-direction: row;
     align-items: center;
+}
+
+#techStoreIcon{
+    height: 120px;
+    width: 120px;
+    border-radius: 600px;    
+    margin-top: 15px;
+    margin-left: 15px;
+}
+
+#title{
+    display: flex;
+    justify-content: center;    
+    align-items: center;
+/*     margin-left: 30%; */
+font-family: 'Domine', serif;
+font-size: 60px;
+
 }
 
 #footer {
@@ -70,6 +88,7 @@ h2 {
 
 .priceText{
     color: rgb(240, 139, 78);
+    font-size: 22px;
 }
 
 .itemListContainer{
@@ -139,6 +158,8 @@ h2 {
 }
 
 .detailInCart{
+    display: flex;
+    flex-direction: row-reverse;
     align-items: center;
 }
 
@@ -255,11 +276,6 @@ input{
     }
 }
 /* Fin botones de cantidad a agregar al carrito */
-
-
-
-
-
 
 
 /* Botones generales de la app */

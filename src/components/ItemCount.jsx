@@ -41,18 +41,14 @@ const onAdd = () => {
     setCart ( (cart) =>{
         const updatedCart = [...cart];
         const cartUbication = updatedCart.findIndex ((selection) => selection.id === id);//findIndex devuelve la posicion del producto en el array
-        console.log(cartUbication);
-        console.log(updatedCart);
         if (cartUbication != -1){                                                  //devuelve -1 si no encuentra la posicion (no esta el producto)                       
             updatedCart[cartUbication].quantityInCart = updatedCart[cartUbication].quantityInCart + quantity;
             updatedCart[cartUbication].totalPrice = updatedCart[cartUbication].quantityInCart * updatedCart[cartUbication].price;
-            console.log(updatedCart);
             return updatedCart
         } else {                                             //si encuentra el producto, me trae la posicion y actualizo la cantidad en el carrito
             const totalPrice = quantity* product.price;
             const productSelected = {...product, quantityInCart: quantity, totalPrice};     
             updatedCart.push(productSelected);
-            console.log(updatedCart);
             return updatedCart;    //uso los return para que se devuelva al hook "setCart" el nuevo carrito (updatedCart) y este tome el lugar
         }                         //del viejo cart. Esto es diferente a modificar el cart original directamente, porque puede tener problemas
     })                           //con los cambios de estado del hook

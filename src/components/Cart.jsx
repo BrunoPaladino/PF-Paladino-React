@@ -7,10 +7,7 @@ import { Link } from 'react-router-dom'
 
 const Cart = () => {
 
-    const {cart, setCart, totalAmountOfProducts, finalAmount, cartEmpty} = useContext(CartContext)
-
-    console.log(cart);
-    console.log(cartEmpty);
+    const {cart, setCart, totalAmountOfProducts, finalAmount, cartEmpty} = useContext(CartContext);
 
     const removeFromCart =()=>{
         setCart ( (cart) =>{
@@ -116,7 +113,6 @@ const Cart = () => {
                                     </div>
                                 </Card>
                     </div>
-                    
 
                 </div>
             </div>)}

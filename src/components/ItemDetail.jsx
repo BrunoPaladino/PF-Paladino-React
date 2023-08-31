@@ -8,10 +8,8 @@ import {doc, getDoc, getFirestore} from 'firebase/firestore'
 const ItemDetail = ( {products} ) => {
     
     const {id} = useParams();
-    console.log (id)
 
     const [productRegister, setProduct] = useState([])      //creo el array vacio donde pondremos los productos de la base de datos
-    console.log(productRegister)
 
     useEffect( () => {
         const dataBase = getFirestore()                 //traigo la base de datos de firestore

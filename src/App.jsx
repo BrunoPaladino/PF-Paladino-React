@@ -9,7 +9,6 @@ import ItemDetail from './components/ItemDetail'
 import ItemListContainer from './components/ItemListContainer'
 import ItemDetailtContainer from './components/ItemDetailContainer'
 import { CartContext, CartProvider } from './contexts/CartContext'
-import ItemCount from './components/ItemCount'
 import Form from './components/Form'
 import Footer from './components/Footer'
 
